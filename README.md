@@ -40,10 +40,25 @@ Providing no start flag also works, the average generation time taken per sample
 
 
 # Results [`↩`](#jumpto)
-TODO
+
+**The results are averaged across 10 runs, on a NVIDIA T4 16GB GPU**
+
+![results](assets/kv_cache_result.png)
+
+| model | params | time(s)| 
+| ------| ------ | ---------- | 
+| gpt2 | 124M         |  22.39 | 
+| gpt2-kv | 124M  | 9.19  | 
+| gpt2-medium | 350M   | 57.75  |
+| gpt2-medium-kv | 350M  | 20.44  | 
+| gpt2-large | 774M   | 111.04  |
+| gpt2-large-kv | 774M     | 26.18  | 
 
 # Possible Improvements [`↩`](#jumpto)
-TODO
+- Instead of copying over the updated cache naively for each layer, in-place extend previous cache
 
 # References [`↩`](#jumpto)
-TODO
+[[1] Andrej Karpathy's Nano GPT](https://github.com/karpathy/nanoGPT) 
+
+[[2] Transformer Arithmetic Blog]([https://arxiv.org/abs/1810.04805](https://kipp.ly/transformer-inference-arithmetic/)) 
+
