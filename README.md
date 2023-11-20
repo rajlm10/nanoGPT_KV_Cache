@@ -45,14 +45,14 @@ Providing no start flag also works, the average generation time taken per sample
 
 ![results](assets/kv_cache_result.png)
 
-| model | params | time(s)| 
-| ------| ------ | ---------- | 
-| gpt2 | 124M         |  22.39 | 
-| gpt2-kv | 124M  | 9.19  | 
-| gpt2-medium | 350M   | 57.75  |
-| gpt2-medium-kv | 350M  | 20.44  | 
-| gpt2-large | 774M   | 111.04  |
-| gpt2-large-kv | 774M     | 26.18  | 
+| model | params | decoder layers| time(s)| speedup |
+| ------| ------ | ---------- |---------- | ---------- | 
+| gpt2 | 124M | 12|  22.39 |
+| gpt2-kv | 124M  | 12| 9.19  | 2.44X|
+| gpt2-medium | 350M  |24 | 57.75  | 
+| gpt2-medium-kv | 350M  |24 | 20.44  | 2.82X|
+| gpt2-large | 774M   | 36| 111.04  |
+| gpt2-large-kv | 774M   |36  | 26.18  | 4.24X|
 
 # Possible Improvements [`↩`](#jumpto)
 - Instead of copying over the updated cache naively for each layer, in-place extend previous cache
